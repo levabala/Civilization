@@ -14,5 +14,12 @@ namespace Civilization
         {
             map = new Cell[width,height];
         }
+
+        private void CreateMap(int width, int height)
+        {
+            for (int x = 0; x < width; x++)
+                for (int y = 0; y < height; y++)
+                    map[x, y] = new Cell(); 
+        }
     }
 }

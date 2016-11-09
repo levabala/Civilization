@@ -8,9 +8,18 @@ namespace Civilization
 {
     class Cell
     {
+        int RoadLevel = 1;
+        List<Resource> Resources = new List<Resource>();
+        LuxuryResource luxRes;
+
         public Cell()
         {
             
+        }
+
+        public int GetUnit(Unit u)
+        {
+            return 0;
         }
     }       
 }
