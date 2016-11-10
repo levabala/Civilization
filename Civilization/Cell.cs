@@ -7,19 +7,36 @@ using System.Threading.Tasks;
 namespace Civilization
 {
     class Cell
-    {
-        int RoadLevel = 1;
-        List<Resource> Resources = new List<Resource>();
-        LuxuryResource luxRes;
+    {        
+        public int RoadLevel = 1;
+        public Pos3d position;
+        public List<Resource> Resources = new List<Resource>();
+        public LuxuryResource luxRes;
 
-        public Cell()
+        public Cell(Pos3d p)
         {
-            
-        }
-
-        public int GetUnit(Unit u)
-        {
-            return 0;
-        }
+            position = p;
+        }       
     }       
+
+    struct Pos3d
+    {
+        public int R, G, B;
+        public Pos3d(int r, int g, int b)
+        {
+            R = r;
+            G = g;
+            B = b;
+        }
+
+        public static Pos3d operator + (Pos3d p1, Pos3d p2)
+        {
+            return new Pos3d(p1.R + p2.R, p1.G + p2.G, p1.B + p1.B);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}:{1}:{2}", R, G, B);
+        }
+    }
 }

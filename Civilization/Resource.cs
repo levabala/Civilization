@@ -10,4 +10,9 @@ namespace Civilization
     {
 
     }
+
+    class LuxuryResource
+    {
+
+    }
 }

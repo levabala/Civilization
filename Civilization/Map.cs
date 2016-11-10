@@ -8,18 +8,35 @@ namespace Civilization
 {
     class Map
     {
-        public Cell[,] map;
+        readonly Pos3d[] deltas = new Pos3d[] {
+                new Pos3d(1, -1, 0), //right
+                new Pos3d(1, 0, -1), //bottom-right
+                new Pos3d(0, 1, -1), //bottom-left
+                new Pos3d(-1, 1, 0), //left
+                new Pos3d(-1, 0, 1), //top-left
+                new Pos3d(0, -1, 1), //top-right
+            };
+
+        public List<List<Cell>> map;        
 
         public Map(int width, int height)
         {
-            map = new Cell[width,height];
+            map = new List<List<Cell>>();
+            CreateMap(width, height);
         }
 
         private void CreateMap(int width, int height)
         {
-            for (int x = 0; x < width; x++)
-                for (int y = 0; y < height; y++)
-                    map[x, y] = new Cell(); 
+            int left = 1;
+            for (int b = 0; b < height; b++)
+            {
+                map.Add(new List<Cell>());
+                List<Cell> row = map[map.Count - 1];
+                left = Math.Abs(left - 1);
+                int rdelta = b / 2;
+                for (int r = 0; r < width; r++)                
+                    row.Add(new Cell(new Pos3d(r+rdelta, -(r - left - rdelta), b)));                
+            }
         }
     }
 }

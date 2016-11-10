@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Civilization
 {
-    class Unit
+    class Engine
     {
-        int movementPoints = 0;
-        public Unit()
+        Map map = new Map(10,10);
+        public Engine(Control c)
         {
 
         }
+
+
     }
 }

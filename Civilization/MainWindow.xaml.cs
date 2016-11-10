@@ -23,6 +23,15 @@ namespace Civilization
         public MainWindow()
         {
             InitializeComponent();
+            Map m = new Map(10, 10);
+
+            string s = "";
+            foreach (List<Cell> l in m.map)
+            {
+                foreach (Cell c in l)
+                    s += c.position.ToString() + "  ";
+                s += "\n";
+            }
         }
     }
 }
