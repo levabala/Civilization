@@ -12,9 +12,9 @@ namespace Civilization
         public Pos3d position;
         public List<Resource> Resources = new List<Resource>();
         public LuxuryResource luxRes;
-        public int altitude;
+        public float altitude;
         Random rnd = new Random;
-        public Cell(Pos3d p; int alt)
+        public Cell(Pos3d p; float alt)
         {
             altitude = alt;
             position = p;
