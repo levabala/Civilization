@@ -28,7 +28,7 @@ namespace Civilization
         //humidity = (((-1 * position.B) + 5) * 10) - 20 / ((rnd.Next(1, 30) / 10) -- влажность в процентах
         public float humidity = (((-1 * position.B) + 5) * 10) - 20 / ((rnd.Next(1, 30) / 10); 
         if(humidity < 0)humidity*=-1; // влажность не бывает отрицательной
-        if(humidity < 5 && humidity >= 0)himidity +=10 //редко бывает ниже 10
+        if(humidity < 5)himidity +=10 //редко бывает ниже 10
     }       
 
     struct Pos3d
