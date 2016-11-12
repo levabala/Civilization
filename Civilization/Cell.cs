@@ -12,11 +12,23 @@ namespace Civilization
         public Pos3d position;
         public List<Resource> Resources = new List<Resource>();
         public LuxuryResource luxRes;
-
-        public Cell(Pos3d p)
+        public float altitude;
+        Random rnd = new Random;
+        public Cell(Pos3d p; float alt)
         {
+            altitude = alt;
             position = p;
         }       
+        //посчитаю влажность
+        //(-1 * position.B) -- получаю вниз направленную вертикальную координату
+        //(-1 * position.B) + 5 -- получаю значения не от -5 до 5, а от 0 до 10
+        //((-1 * position.B) + 5) * 10 -- получаю значение в процентах
+        //(((-1 * position.B) + 5) * 10) - 20 -- отнимаю 20 для реалистичности(средней влажности 100 % никогда не бывает)
+        //((rnd.Next(30) / 10) -- псевдорандомное значение, которое является числом от 0.1 до 3.0
+        //humidity = (((-1 * position.B) + 5) * 10) - 20 / ((rnd.Next(1, 30) / 10) -- влажность в процентах
+        public float humidity = (((-1 * position.B) + 5) * 10) - 20 / ((rnd.Next(1, 30) / 10); 
+        if(humidity < 0)humidity*=-1; // влажность не бывает отрицательной
+        if(humidity < 5)himidity +=10 //редко бывает ниже 10
     }       
 
     struct Pos3d

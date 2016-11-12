@@ -33,9 +33,12 @@ namespace Civilization
                 map.Add(new List<Cell>());
                 List<Cell> row = map[map.Count - 1];
                 left = Math.Abs(left - 1);
-                int rdelta = b / 2;
-                for (int r = 0; r < width; r++)                
-                    row.Add(new Cell(new Pos3d(r+rdelta, -(r - left - rdelta), b)));                
+                int rdelta = b / 2;for (int r = 0; r < width; r++){
+                    Pos3d position = new Pos3d(r+rdelta, -(r - left - rdelta), b);
+                    float altitude = (20 - Convert.ToInt32(Math.Abs(position.B)) -Convert.ToInt32(Math.Abs(position.R) + Math.Abs(position.G))) / 2; 
+                    //высота, число от 0 до 10. Чем ближе координаты к нулю, тем больше высота
+                    row.Add(new Cell(position, altitude));   
+                }            
             }
         }
     }
